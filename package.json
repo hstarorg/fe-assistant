@@ -1,5 +1,5 @@
 {
-  "name": "fe-assistant",
+  "name": "vscode-fe-assistant",
   "displayName": "FEAssistant",
   "description": "",
   "version": "0.0.1",
@@ -16,10 +16,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
+        "command": "extension.feaAddReactPage",
+        "title": "FEA: Add React Page"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "",
+          "command": "extension.feaAddReactPage",
+          "group": "FEA: Add React Page"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
