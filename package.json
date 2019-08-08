@@ -3,14 +3,27 @@
   "displayName": "FEAssistant",
   "description": "",
   "version": "0.0.1",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.36.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Snippets"
   ],
+  "author": {
+    "name": "Jay Hu",
+    "email": "hm910705@163.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebastianbaar/vscode-add-angular-files"
+  },
+  "bugs": {
+    "url": "https://github.com/sebastianbaar/vscode-add-angular-files/issues"
+  },
   "activationEvents": [
-    "onCommand:extension.helloWorld"
+    "onCommand:extension.feaAddReactPage"
   ],
   "main": "./out/extension.js",
   "contributes": {
