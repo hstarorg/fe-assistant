@@ -1,6 +1,5 @@
 # FEAssistant README
 
-
 ## Features
 
 - 创建 React 页面
@@ -22,8 +21,11 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 0.0.1
 
 测试扩展能力和发布
+
+## Other
+
+扩展开发参考文档：https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/
+发布工具： [vsce](https://github.com/Microsoft/vsce)

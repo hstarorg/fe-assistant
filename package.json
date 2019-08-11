@@ -45,10 +45,11 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "webpack --config build/webpack.config.js --mode production",
+    "compile": "webpack --config build/webpack.config.js --mode none",
+    "watch": "webpack --config build/webpack.config.js --mode none --watch",
     "pretest": "npm run compile",
+    "pack": "vsce package",
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
@@ -56,10 +57,17 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^10.12.21",
     "@types/vscode": "^1.36.0",
+    "art-template-loader": "^1.4.3",
     "glob": "^7.1.4",
     "mocha": "^6.1.4",
-    "typescript": "^3.3.1",
+    "ts-loader": "^6.0.4",
     "tslint": "^5.12.1",
-    "vscode-test": "^1.0.2"
+    "typescript": "^3.3.1",
+    "vscode-test": "^1.0.2",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "art-template": "^4.13.2"
   }
 }

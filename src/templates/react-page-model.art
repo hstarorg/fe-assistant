@@ -1,0 +1,24 @@
+// import { xxxService } from '@/services';
+
+export type {{model.pageName}}State = {
+
+};
+
+export default <DvaModel<{{model.pageName}}State>>{
+  namespace: '{{model.varPageName}}Ns',
+  state: {
+
+  },
+  effects: {
+    *getXXXInfo({ payload }, { put, call }) {
+ //     const data = yield call(xxxService.getXXXInfo);
+ //     yield put({ type: 'setXXX', payload: data });
+ //     return data;
+    },
+  },
+  reducers: {
+    setXXX(state, { payload }) {
+      return { ...state, xxx: payload };
+    },
+  },
+};

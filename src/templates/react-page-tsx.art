@@ -1,0 +1,11 @@
+import React, { Component } from '@alipay/bigfish/react';
+import { connect } from '@alipay/bigfish/sdk';
+
+import styles from './{{model.pageName}}.less';
+
+@connect(({ {{model.varPageName}}Ns }: any) => ({}))
+export default class {{model.pageName}} extends Component {
+  render() {
+    return <div className={styles.{{model.varPageName}}}>{{model.pageName}}</div>;
+  }
+}

@@ -1,7 +1,12 @@
-import { window, workspace, TextEditor } from 'vscode';
+import { window, workspace } from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as util from 'util';
+import { stringUtil, templateUtil } from '../utils';
+
+const pageModelTemplate = require('../templates/react-page-model.art');
+const pageTsxTemplate = require('../templates/react-page-tsx.art');
+const pageLessTemplate = require('../templates/react-page-less.art');
 
 type AddReactPageCommandContext = {
   clickedFolderPath: string;
@@ -48,6 +53,9 @@ export class AddReactPageCommand {
    */
   createFolder(cmdContext: AddReactPageCommandContext) {
     const dir = path.join(cmdContext.clickedFolderPath, cmdContext.folderName!);
+    if (fs.existsSync(dir)) {
+      return Promise.reject('folder exists, please retry');
+    }
     return util
       .promisify(fs.mkdir)(dir)
       .then(() => {
@@ -61,6 +69,25 @@ export class AddReactPageCommand {
    * @param cmdContext
    */
   createFiles(cmdContext: AddReactPageCommandContext) {
-    return Promise.resolve();
+    const pageName = stringUtil.toCamelCase(cmdContext.folderName!, true);
+    const varPageName = `${pageName[0].toLowerCase()}${pageName.slice(1)}`;
+    const pageTsxPath = path.join(cmdContext.dir!, `${pageName}.tsx`);
+    const pageLessPath = path.join(cmdContext.dir!, `${pageName}.less`);
+    const pageModelPath = path.join(cmdContext.dir!, `model.ts`);
+    const data = {
+      pageName,
+      varPageName,
+    };
+    try {
+      // <pageName>.tsx
+      fs.writeFileSync(pageTsxPath, templateUtil.renderToString(pageTsxTemplate, data), 'utf8');
+      // <pageName>.less
+      fs.writeFileSync(pageLessPath, templateUtil.renderToString(pageLessTemplate, data), 'utf8');
+      // model.ts
+      fs.writeFileSync(pageModelPath, templateUtil.renderToString(pageModelTemplate, data), 'utf8');
+      return Promise.resolve();
+    } catch (e) {
+      return Promise.reject(e && e.message);
+    }
   }
 }
