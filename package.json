@@ -1,8 +1,8 @@
 {
   "name": "vscode-fe-assistant",
   "displayName": "FEAssistant",
-  "description": "",
-  "version": "0.1.0",
+  "description": "Front-end development assistant",
+  "version": "0.1.1",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.36.0"
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebastianbaar/vscode-add-angular-files"
+    "url": "https://github.com/hstarorg/vscode-fe-assistant"
   },
   "bugs": {
-    "url": "https://github.com/sebastianbaar/vscode-add-angular-files/issues"
+    "url": "https://github.com/hstarorg/vscode-fe-assistant/issues"
   },
   "activationEvents": [
     "onCommand:extension.feaAddReactPage"

@@ -21,15 +21,20 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ## Release Notes
 
-### 0.0.1
+### 0.1.1
 
-- 测试扩展能力和发布
+- 优化创建的 `model.ts` 内容
 
 ### 0.1.0
 
 - 支持添加页面模板
 
+### 0.0.1
+
+- 测试扩展能力和发布
+
 ## Other
 
 扩展开发参考文档：https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/
+
 发布工具： [vsce](https://github.com/Microsoft/vsce)
