@@ -23,7 +23,11 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ### 0.0.1
 
-测试扩展能力和发布
+- 测试扩展能力和发布
+
+### 0.1.0
+
+- 支持添加页面模板
 
 ## Other
 
