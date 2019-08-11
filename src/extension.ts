@@ -16,14 +16,11 @@ export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand('extension.feaAddReactPage', (args: any) => {
     // The code you place here will be executed every time your command is executed
     const arpCommand = new AddReactPageCommand();
-    console.log(args.fsPath);
     arpCommand
       .showFileNameDialog(args)
       .then(arpCommand.createFolder)
       .then(arpCommand.createFiles)
       .catch((message: string) => vscode.window.showErrorMessage(message));
-
-    vscode.window.showInformationMessage('Hello World!');
   });
 
   context.subscriptions.push(disposable);

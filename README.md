@@ -21,6 +21,10 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ## Release Notes
 
+### 0.1.2
+
+- 删除 Debug 信息
+
 ### 0.1.1
 
 - 优化创建的 `model.ts` 内容
