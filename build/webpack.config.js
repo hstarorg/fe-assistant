@@ -9,6 +9,10 @@
 
 const path = require('path');
 
+function root(...args) {
+  return path.join(__dirname, '..', ...args);
+}
+
 /**@type {import('webpack').Configuration}*/
 const config = {
   target: 'node', // vscode插件运行在Node.js环境中 📖 -> https://webpack.js.org/configuration/node/
@@ -16,7 +20,7 @@ const config = {
   entry: './src/extension.ts', // 插件的入口文件 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
     // 打包好的文件储存在'dist'文件夹中 (请参考package.json), 📖 -> https://webpack.js.org/configuration/output/
-    path: path.resolve(__dirname, '..', 'out'),
+    path: root('out'),
     filename: 'extension.js',
     libraryTarget: 'commonjs2',
     devtoolModuleFilenameTemplate: '../[resource-path]',
@@ -28,6 +32,9 @@ const config = {
   resolve: {
     // 支持读取TypeScript和JavaScript文件, 📖 -> https://github.com/TypeStrong/ts-loader
     extensions: ['.ts', '.js', '.art'],
+    alias: {
+      '@': root('src'),
+    },
   },
   module: {
     rules: [

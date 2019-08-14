@@ -9,8 +9,8 @@ import { CommandCtor } from './commands/ICommand';
 function registerCommand(cmdName: string, commandClass: CommandCtor) {
   const disposable = vscode.commands.registerCommand(`extension.${cmdName}`, (args: any) => {
     // The code you place here will be executed every time your command is executed
-    const arpCommand = new commandClass();
-    arpCommand.execute(args).catch((message: string) => vscode.window.showErrorMessage(message));
+    const command = new commandClass();
+    command.execute(args).catch((message: string) => vscode.window.showErrorMessage(message));
   });
   return disposable;
 }

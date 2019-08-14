@@ -4,7 +4,7 @@ import { window, workspace } from 'vscode';
 import { templateUtil, util } from '@/utils';
 
 const lessTemplate = require('../templates/react-less.art');
-const modelTemplate = require('../templates/react-page-model.art');
+const modelTemplate = require('../templates/react-model.art');
 
 export const bizCommon = {
   /**

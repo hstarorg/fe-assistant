@@ -34,12 +34,10 @@ export class AddReactComponentCommand implements ICommand {
     const cwd = bizCommon.getCurrentWorkDir(args.fsPath);
     try {
       const inputValue = await bizCommon.showInputBox();
-      const dir = path.join(cwd, inputValue);
-      await bizCommon.createDir(dir);
       // 创建文件
-      await this.createFiles(dir, inputValue);
+      await this.createFiles(cwd, inputValue);
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 }
