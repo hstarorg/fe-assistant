@@ -21,6 +21,10 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ## Release Notes
 
+### 0.2.0
+
+- 新增创建区块和创建组件功能
+
 ### 0.1.2
 
 - 删除 Debug 信息

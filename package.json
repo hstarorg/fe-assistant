@@ -2,7 +2,7 @@
   "name": "vscode-fe-assistant",
   "displayName": "FEAssistant",
   "description": "Front-end development assistant",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.36.0"
