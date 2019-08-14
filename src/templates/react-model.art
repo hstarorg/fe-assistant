@@ -1,9 +1,9 @@
 // import { xxxService } from '@/services';
 
-export type {{model.pageName}}State = { };
+export type {{model.name}}State = { };
 
-export default <DvaModel<{{model.pageName}}State>>{
-  namespace: '{{model.varPageName}}Ns',
+export default <DvaModel<{{model.name}}State>>{
+  namespace: '{{model.varName}}Ns',
   state: {},
   effects: {
     *getXXXInfo({ payload }, { put, call }) {

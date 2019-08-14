@@ -3,9 +3,9 @@ import { stringUtil } from '../utils';
 import { bizCommon } from '@/common';
 import { ICommand } from './ICommand';
 
-const pageTsxTemplate = require('../templates/react-page-tsx.art');
+const componentTsxTemplate = require('../templates/react-component-tsx.art');
 
-export class AddReactPageCommand implements ICommand {
+export class AddReactComponentCommand implements ICommand {
   /**
    * 创建文件
    * @param cmdContext
@@ -15,18 +15,15 @@ export class AddReactPageCommand implements ICommand {
     const varName = `${name[0].toLowerCase()}${name.slice(1)}`;
     const tsxFilepath = path.join(dir, `${name}.tsx`);
     const lessFilepath = path.join(dir, `${name}.less`);
-    const modelFilepath = path.join(dir, `model.ts`);
     const data = {
       name,
       varName,
     };
     try {
       // <pageName>.tsx
-      bizCommon.writeTemplateFile(tsxFilepath, data, pageTsxTemplate);
+      bizCommon.writeTemplateFile(tsxFilepath, data, componentTsxTemplate);
       // <pageName>.less
       bizCommon.writeLessFile(lessFilepath, data);
-      // model.ts
-      bizCommon.writeModelFile(modelFilepath, data);
       return Promise.resolve();
     } catch (e) {
       return Promise.reject(e && e.message);

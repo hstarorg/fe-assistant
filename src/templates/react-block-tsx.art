@@ -4,7 +4,7 @@ import { connect } from '@alipay/bigfish/sdk';
 import styles from './{{model.name}}.less';
 
 @connect(({ {{model.varName}}Ns }: any) => ({}))
-export default class {{model.name}} extends Component {
+export class {{model.name}} extends Component {
   render() {
     return <div className={styles.{{model.varName}}}>{{model.name}}</div>;
   }

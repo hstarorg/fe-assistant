@@ -32,6 +32,14 @@
       {
         "command": "extension.feaAddReactPage",
         "title": "FEA: Add React Page"
+      },
+      {
+        "command": "extension.feaAddReactBlock",
+        "title": "FEA: Add React Block"
+      },
+      {
+        "command": "extension.feaAddReactComponent",
+        "title": "FEA: Add React Component"
       }
     ],
     "menus": {
@@ -39,7 +47,17 @@
         {
           "when": "",
           "command": "extension.feaAddReactPage",
-          "group": "FEA: Add React Page"
+          "group": "fea"
+        },
+        {
+          "when": "",
+          "command": "extension.feaAddReactBlock",
+          "group": "fea"
+        },
+        {
+          "when": "",
+          "command": "extension.feaAddReactComponent",
+          "group": "fea"
         }
       ]
     }
