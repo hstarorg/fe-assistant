@@ -44,6 +44,40 @@ export const bizCommon = {
   },
 
   /**
+   * 获取应用根目录
+   * @param fsPath
+   */
+  getRootDir(fsPath: string) {
+    let dir = this.getCurrentWorkDir(fsPath);
+    do {
+      // package.json 是否存在
+      const packageJsonExists = fs.existsSync(path.join(dir, 'package.json'));
+      // 指定目录存在
+      try {
+        const dirsExists = ['src', 'node_module']
+          .map((x) => {
+            const tmpPath = path.join(dir, x);
+            // 必须存在且是目录
+            return fs.existsSync(tmpPath) && fs.statSync(tmpPath).isDirectory();
+          })
+          .every((x) => x);
+        if (packageJsonExists && dirsExists) {
+          return dir;
+        }
+      } catch (ex) {
+        console.log(ex);
+      }
+
+      const newDir = path.join(dir, '../');
+      // 最终一层
+      if (dir === newDir) {
+        return null;
+      }
+      dir = newDir;
+    } while (true);
+  },
+
+  /**
    * 创建目录
    * @param dirname
    */
@@ -62,7 +96,7 @@ export const bizCommon = {
    * 获取用户输入
    */
   showInputBox(): Promise<string> {
-    if (workspace.rootPath === undefined) {
+    if ((workspace.workspaceFolders?.length || 0) === 0) {
       return Promise.reject('Please open a project first. Thanks! :-)');
     } else {
       return new Promise((resolve, reject) => {
@@ -71,7 +105,7 @@ export const bizCommon = {
             prompt: "What's the name of the new folder?",
             value: 'folder',
           })
-          .then(inputValue => {
+          .then((inputValue) => {
             if (!inputValue || /[~`!#$%\^&*+=\[\]\\';,/{}|\\":<>\?\s]/g.test(inputValue)) {
               return reject("That's not a valid name! (no whitespaces or special characters)");
             }

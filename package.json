@@ -24,7 +24,7 @@
     "url": "https://github.com/hstarorg/vscode-fe-assistant/issues"
   },
   "activationEvents": [
-    "onCommand:extension.feaAddReactPage"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -80,6 +80,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/glob": "^7.2.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.17.60",
@@ -95,6 +96,7 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "art-template": "^4.13.2"
+    "art-template": "^4.13.2",
+    "fs-extra": "^10.1.0"
   }
 }

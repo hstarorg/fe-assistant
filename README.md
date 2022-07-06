@@ -15,9 +15,15 @@ If you have any requirements or dependencies, add a section describing those and
 * `myExtension.enable`: enable/disable this extension
 * `myExtension.thing`: set to `blah` to do something
 
-## Known Issues
+## 如何发布
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```bash
+# 打包
+vsce package
+
+# 发布
+vsce publish
+```
 
 ## Release Notes
 
