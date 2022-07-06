@@ -1,10 +1,13 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { AddReactPageCommand } from './commands/AddReactPageCommand';
-import { AddReactBlockCommand } from './commands/AddReactBlockCommand';
-import { AddReactComponentCommand } from './commands/AddReactComponentCommand';
-import { CommandCtor } from './commands/ICommand';
+import {
+  AddReactPageCommand,
+  AddReactBlockCommand,
+  AddReactComponentCommand,
+  CleanUmiCacheCommand,
+} from './commands';
+import type { CommandCtor } from './commands/ICommand';
 
 function registerCommand(cmdName: string, commandClass: CommandCtor) {
   const disposable = vscode.commands.registerCommand(`extension.${cmdName}`, (args: any) => {
@@ -26,6 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
     registerCommand('feaAddReactPage', AddReactPageCommand),
     registerCommand('feaAddReactBlock', AddReactBlockCommand),
     registerCommand('feaAddReactComponent', AddReactComponentCommand),
+    registerCommand('feaCleanUmiCache', CleanUmiCacheCommand),
   );
 }
 
