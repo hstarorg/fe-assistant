@@ -15,12 +15,10 @@ export class CleanUmiCacheCommand implements ICommand {
 
   async execute(args: any) {
     const cwd = bizCommon.getCurrentWorkDir(args.fsPath);
+    console.log(args, cwd);
+    // TODO: How to find the root dir?
     try {
-      const inputValue = await bizCommon.showInputBox();
-      const dir = path.join(cwd, inputValue);
-      await bizCommon.createDir(dir);
-      // 创建文件
-      await this.createFiles(dir, inputValue);
+
     } catch (e) {
       return e;
     }
